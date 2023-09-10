@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'pages/splash_page.dart';
 import 'themes/theme.dart';
 
 void main() async {
@@ -16,11 +17,7 @@ class MainApp extends StatelessWidget {
       title: "E-commerce Glossary App",
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      home: const Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+      home: const SplashPage(),
     );
   }
 }
