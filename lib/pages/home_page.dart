@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/drawer.dart';
+import '../widgets/list_terms.dart';
 import '../widgets/search_form.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,6 +13,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _controller = TextEditingController();
+
+  final List _items = [];
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +34,7 @@ class _HomePageState extends State<HomePage> {
             onClose: null,
           ),
           // List of Terms
+          ListOfTerms(items: _items)
         ],
       ),
     );
