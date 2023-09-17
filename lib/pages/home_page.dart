@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/drawer.dart';
+import '../widgets/search_form.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,6 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final _controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,9 +22,14 @@ class _HomePageState extends State<HomePage> {
         scrolledUnderElevation: 0,
       ),
       drawer: const AppDrawer(),
-      body: const Column(
+      body: Column(
         children: [
           // Search Form
+          SearchForm(
+            controller: _controller,
+            onChanged: null,
+            onClose: null,
+          ),
           // List of Terms
         ],
       ),
