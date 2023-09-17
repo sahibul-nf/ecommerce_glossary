@@ -1,3 +1,4 @@
+import 'package:ecommerce_glossary/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -105,7 +106,12 @@ class WelcomePage extends StatelessWidget {
           // Button
           buildButton(
             onPressedButton: () {
-              Navigator.pushNamed(context, '/home');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HomePage(),
+                ),
+              );
             },
           ),
         ],
