@@ -4,11 +4,13 @@ class SearchForm extends StatelessWidget {
   const SearchForm({
     Key? key,
     required this.controller,
+    required this.focusNode,
     this.onChanged,
-    this.onClose,
+    this.onClose, 
   }) : super(key: key);
 
   final TextEditingController controller;
+  final FocusNode focusNode;
   final void Function(String)? onChanged;
   final void Function()? onClose;
 
@@ -18,6 +20,7 @@ class SearchForm extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       child: TextField(
         controller: controller,
+        focusNode: focusNode,
         onChanged: onChanged,
         decoration: InputDecoration(
           border: const OutlineInputBorder(),

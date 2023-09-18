@@ -16,6 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _controller = TextEditingController();
+  final _focusNode = FocusNode();
 
   List _items = [];
 
@@ -75,12 +76,13 @@ class _HomePageState extends State<HomePage> {
           // Search Form
           SearchForm(
             controller: _controller,
+            focusNode: _focusNode,
             onChanged: onSearching,
             onClose: () {
               // Reset the list of terms
               fetchData();
               // Unfocus the TextField
-              FocusScope.of(context).unfocus();
+              _focusNode.unfocus();
               // Clear the TextField
               _controller.clear();
             },

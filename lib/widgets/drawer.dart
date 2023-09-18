@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../pages/sources_page.dart';
+
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key? key}) : super(key: key);
 
@@ -14,6 +16,12 @@ class AppDrawer extends StatelessWidget {
             title: const Text("Quellen"),
             onTap: () {
               // Navigate to Source Page
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SourcesPage(),
+                ),
+              );
             },
           ),
         ],
