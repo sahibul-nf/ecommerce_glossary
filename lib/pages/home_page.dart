@@ -19,6 +19,25 @@ class _HomePageState extends State<HomePage> {
 
   List _items = [];
 
+  void onSearching(String value) {
+    // Handle search if the value is empty
+    if (value.isEmpty) {
+      // Reset the list of terms
+      fetchData();
+      return;
+    }
+
+    // Filter the list of terms
+    List filteredTerms = _items.where((item) {
+      return item["title"].toLowerCase().contains(value.toLowerCase());
+    }).toList();
+
+    // Update the list of terms
+    setState(() {
+      _items = filteredTerms;
+    });
+  }
+
   Future<void> fetchData() async {
     // File path
     String path = "assets/data/glossary.json";
@@ -56,8 +75,15 @@ class _HomePageState extends State<HomePage> {
           // Search Form
           SearchForm(
             controller: _controller,
-            onChanged: null,
-            onClose: null,
+            onChanged: onSearching,
+            onClose: () {
+              // Reset the list of terms
+              fetchData();
+              // Unfocus the TextField
+              FocusScope.of(context).unfocus();
+              // Clear the TextField
+              _controller.clear();
+            },
           ),
           // List of Terms
           ListOfTerms(items: _items)
